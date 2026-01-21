@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh nhật Vy 🎉</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .gift-box {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(145deg, #ff6b9d, #c06c84);
+            border-radius: 10px;
+            margin: 0 auto 30px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .gift-box:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .gift-bow {
+            width: 60px;
+            height: 60px;
+            background: #ffd93d;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50%;
+        }
+
+        .gift-bow::before,
+        .gift-bow::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: #ffd93d;
+            border-radius: 50%;
+        }
+
+        .gift-bow::before {
+            left: -25px;
+            top: 5px;
+        }
+
+        .gift-bow::after {
+            right: -25px;
+            top: 5px;
+        }
+
+        .ribbon {
+            width: 20px;
+            height: 100%;
+            background: #ffd93d;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ribbon-h {
+            width: 100%;
+            height: 20px;
+            background: #ffd93d;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        .instruction {
+            color: #ffd93d;
+            font-size: 1.2em;
+            margin-top: 20px;
+            animation: pulse 2s ease infinite;
+        }
+
+        .wish-message {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+            animation: zoomIn 0.5s ease;
+        }
+
+        .wish-message.show {
+            display: block;
+        }
+
+        .wish-message h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .wish-message p {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .easter-egg {
+            margin-top: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffd93d 0%, #ff6b9d 100%);
+            border-radius: 15px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            animation: rainbow 3s ease infinite;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd93d;
+            animation: fall 3s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="giftContainer">
+            <h1>🎂 Chúc Mừng Sinh Nhật! 🎂</h1>
+            <div class="gift-box" id="giftBox">
+                <div class="gift-bow"></div>
+                <div class="ribbon"></div>
+                <div class="ribbon-h"></div>
+            </div>
+            <p class="instruction">👆 Click vào hộp quà để mở! 👆</p>
+        </div>
+
+        <div class="wish-message" id="wishMessage">
+            <h2>💝 Gửi đến một người bạn đặc biệt 💝</h2>
+            <p>
+                Chúc bạn một sinh nhật cái đứa hồi lớp 5 ngồi cùng suốt ngày thọc nách 
+              đưa lên mũi t và nách hôi vl có lần vô tình còn cho hẳn vào mồm, rồi suốt
+              ngày ngồi vẽ móng tay giả ngốn hết cuộn băng dính của t 
+            </p>
+            <p>
+                Trước còn bị ghép với thg long r bị cả lớp gắn ghép đuổi để cho 2 đứa 
+              dán vào 
+            </p>
+            <p>
+                Lol
+            </p>
+            <div class="easter-egg">
+                Hehe hehehehehehehheehehheehheehhehehe
+              Sorry vì 2 năm ko chúc m
+              
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const giftBox = document.getElementById('giftBox');
+        const giftContainer = document.getElementById('giftContainer');
+        const wishMessage = document.getElementById('wishMessage');
+
+        // Tạo confetti
+        function createConfetti() {
+            for(let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                document.body.appendChild(confetti);
+            }
+        }
+
+        giftBox.addEventListener('click', function() {
+            createConfetti();
+            giftContainer.style.display = 'none';
+            wishMessage.classList.add('show');
+        });
+    </script>
+</body>
+</html>
